@@ -1,6 +1,6 @@
 // Reference : jenkins.io/doc/book/pipeline/syntax/
 
-pipeline {
+pipeline { 
     agent any
     
     parameters {
@@ -14,10 +14,22 @@ pipeline {
         ENV_URL = "pipeline.google.com"   //Global Variable
         SSH_CRED = credentials('SSH_CRED')
     }
+    options {
+        buildDiscarder(logRotator(numTokeepStr: '10'))
+        timeout(time: 59, unit: 'MINUTES')
+    }
+    tools{
+        maven 'apache-maven-3.0.1' // This way you can specify the maven version from code
+        maven 'maven-390' // In This way we configured in Jenkins->mangage->Tools section that whenever maven-390 is passed install maven-3.9.0 version
+    }
+    triggers{
+        // cron('*/1 * * * *')
+        pollSCM('*/1 * * * *')
+    }
     stages{
         stage('Name of the Stage - 1') {
             steps {
-                sh "echo Hello World"
+                sh "mvn --version"
                 sh "echo Name of the Variable is ${ENV_URL}"
                 sh "env"
             }
