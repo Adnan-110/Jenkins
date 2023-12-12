@@ -13,7 +13,6 @@ pipeline {
     environment{
         ENV_URL = "pipeline.google.com"   //Global Variable
         SSH_CRED = credentials('SSH_CRED')
-        PASSWORD = credentials('password')
     }
     stages{
         stage('Name of the Stage - 1') {
