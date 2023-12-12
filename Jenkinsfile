@@ -5,7 +5,7 @@ pipeline {
     environment{
         ENV_URL = "pipeline.google.com"   //Global Variable
         SSH_CRED = credentials('SSH_CRED')
-        PASSWORD = credentials('PASSWORD')
+        PASSWORD = credentials('password')
 
     }
     parameters {
