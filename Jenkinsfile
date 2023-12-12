@@ -9,9 +9,9 @@ pipeline {
     stages{
         stage('Name of the Stage - 1') {
             steps {
-                sh "echo Hello"
-                sh "echo World"
+                sh "echo Hello World"
                 sh "echo Name of the Variable is ${ENV_URL}"
+                sh "env"
             }
         }
         stage('Name of the Stage - 2') {
