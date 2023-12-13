@@ -32,6 +32,7 @@ pipeline {
     stages{
         stage('Name of the Stage - 1') {
             steps {
+                sh "hostname"
                 sh "mvn --version"
                 sh "echo Name of the Variable is ${ENV_URL}"
                 sh "env"
