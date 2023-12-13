@@ -18,7 +18,7 @@ pipeline {
         SSH_CRED = credentials('SSH_CRED')
     }
     options {
-        buildDiscarder(logRotator(numTokeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 59, unit: 'MINUTES')
     }
     tools{  // This option will make build tools available only for this single run and will not install permanently.
