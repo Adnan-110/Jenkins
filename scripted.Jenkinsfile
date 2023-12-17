@@ -3,7 +3,7 @@ node{
         print "Hello World"
         sh(script:"env")
     }
-    if(env.TAG_NAME != "" || env.TAG_NAME != null){
+    if(env.TAG_NAME != "" && env.TAG_NAME != null){
         stage('Executing on Tag Name'){
             print "Executed on Tag"
         }
