@@ -57,8 +57,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
@@ -70,8 +70,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
@@ -83,8 +83,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
@@ -96,8 +96,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
@@ -109,8 +109,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
@@ -122,8 +122,8 @@ pipeline {
                 sh ''' 
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yml
+                    kubectl apply -f k8-deploy.yml
+                    kubectl get nodes
                 '''
                 }
             }
