@@ -58,7 +58,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
@@ -71,7 +71,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
@@ -84,7 +84,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
@@ -97,7 +97,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
@@ -110,7 +110,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
@@ -123,7 +123,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     sh "kubectl get nodes
-                    sh "kubectl apply -f k8-deploy.yaml
+                    sh "kubectl apply -f k8-deploy.yml
                 '''
                 }
             }
