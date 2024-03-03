@@ -52,57 +52,93 @@ pipeline {
             }
         stage('Deploying Catalogue') {
             steps {
-                sh "cd /home/centos/catalogue/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('catalogue') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
+                sh ''' 
+                    cd catalogue
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying User') {
             steps {
-                sh "cd /home/centos/user/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('user') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
+                sh ''' 
+                    cd user
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying Cart') {
             steps {
-                sh "cd /home/centos/cart/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('cart') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
+                sh ''' 
+                    cd cart
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying Shipping') {
             steps {
-                sh "cd /home/centos/shipping/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('shipping') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
+                sh ''' 
+                    cd shipping
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying Payment') {
             steps {
-                sh "cd /home/centos/payment/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('payment') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
+                sh ''' 
+                    cd payment
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying Frontend') {
             steps {
-                sh "cd /home/centos/frontend/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('frontend') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
+                sh ''' 
+                    cd frontend
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster
+                    cd catalogue
+                    sh "kubectl get nodes
+                    sh "kubectl apply -f k8-deploy.yaml
+                '''
+                }
             }
-        }    
+        }
     }  
 }                      
