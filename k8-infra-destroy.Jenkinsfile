@@ -14,7 +14,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
@@ -27,7 +27,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
@@ -40,7 +40,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
@@ -53,7 +53,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
@@ -66,7 +66,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
@@ -79,7 +79,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
                 sh '''
                     echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
                     kubectl delete -f k8-deploy.yaml
                 '''
