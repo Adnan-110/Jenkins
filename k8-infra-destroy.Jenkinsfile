@@ -2,63 +2,88 @@ pipeline {
     agent any 
     parameters {
         choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Select The Environment')
+        string(name: 'APP_VERSION', defaultValue: 'v01', description: 'Applicaiton Version To Be Deployed')
     }
     options {
         ansiColor('xterm')    // Add's color to the output : Ensure you install AnsiColor Plugin.
     }
     stages {
-        stage('Deploying Catalogue') {
+        stage('Deleting Catalogue') {
             steps {
-                sh "cd /home/centos/catalogue/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('catalogue') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
-        stage('Deploying User') {
+        stage('Deleting User') {
             steps {
-                sh "/home/centos/user/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('user') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
-        stage('Deploying Cart') {
+        stage('Deleting Cart') {
             steps {
-                sh "/home/centos/cart/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('cart') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Deploying Shipping') {
             steps {
-                sh "/home/centos/shipping/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('shipping') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
-        stage('Deploying Payment') {
+        stage('Deleting Payment') {
             steps {
-                sh "/home/centos/payment/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('payment') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
-        stage('Deploying Frontend') {
+        stage('Deleting Frontend') {
             steps {
-                sh "/home/centos/frontend/"
-                sh "echo Authentication To EKS"
-                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
-                sh "kubectl get nodes"
-                sh "kubectl apply -f k8-deploy.yaml"
+                dir('frontend') {
+                git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
+                sh '''
+                    echo Authentication To EKS
+                    aws eks update-kubeconfig  --name dev-eks-cluster"
+                    kubectl get nodes
+                    kubectl delete -f k8-deploy.yaml
+                '''
+                }
             }
         }
         stage('Destroying-EKS') {
