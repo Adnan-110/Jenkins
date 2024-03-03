@@ -7,6 +7,60 @@ pipeline {
         ansiColor('xterm')    // Add's color to the output : Ensure you install AnsiColor Plugin.
     }
     stages {
+        stage('Deploying Catalogue') {
+            steps {
+                sh "/home/centos/catalogue/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
+        stage('Deploying User') {
+            steps {
+                sh "/home/centos/user/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
+        stage('Deploying Cart') {
+            steps {
+                sh "/home/centos/cart/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
+        stage('Deploying Shipping') {
+            steps {
+                sh "/home/centos/shipping/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
+        stage('Deploying Payment') {
+            steps {
+                sh "/home/centos/payment/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
+        stage('Deploying Frontend') {
+            steps {
+                sh "/home/centos/frontend/"
+                sh "echo Authentication To EKS"
+                sh "aws eks update-kubeconfig  --name dev-eks-cluster"
+                sh "kubectl get nodes"
+                sh "kubectl apply -f k8-deploy.yaml"
+            }
+        }
         stage('Destroying-EKS') {
             steps {
                 dir('EKS') {  
