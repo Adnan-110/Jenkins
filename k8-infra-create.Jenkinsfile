@@ -55,10 +55,8 @@ pipeline {
                 dir('catalogue') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
                 sh ''' 
-                    cd catalogue
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
@@ -70,10 +68,8 @@ pipeline {
                 dir('user') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
                 sh ''' 
-                    cd user
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
@@ -85,10 +81,8 @@ pipeline {
                 dir('cart') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
                 sh ''' 
-                    cd cart
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
@@ -100,10 +94,8 @@ pipeline {
                 dir('shipping') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
                 sh ''' 
-                    cd shipping
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
@@ -115,10 +107,8 @@ pipeline {
                 dir('payment') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
                 sh ''' 
-                    cd payment
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
@@ -130,10 +120,8 @@ pipeline {
                 dir('frontend') {
                 git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
                 sh ''' 
-                    cd frontend
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
-                    cd catalogue
                     sh "kubectl get nodes
                     sh "kubectl apply -f k8-deploy.yaml
                 '''
