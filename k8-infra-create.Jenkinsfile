@@ -52,7 +52,7 @@ pipeline {
             }
         stage('Deploying Catalogue') {
             steps {
-                sh "/home/centos/catalogue/"
+                sh "cd /home/centos/catalogue/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
@@ -61,7 +61,7 @@ pipeline {
         }
         stage('Deploying User') {
             steps {
-                sh "/home/centos/user/"
+                sh "cd /home/centos/user/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
@@ -70,7 +70,7 @@ pipeline {
         }
         stage('Deploying Cart') {
             steps {
-                sh "/home/centos/cart/"
+                sh "cd /home/centos/cart/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
@@ -79,7 +79,7 @@ pipeline {
         }
         stage('Deploying Shipping') {
             steps {
-                sh "/home/centos/shipping/"
+                sh "cd /home/centos/shipping/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
@@ -88,7 +88,7 @@ pipeline {
         }
         stage('Deploying Payment') {
             steps {
-                sh "/home/centos/payment/"
+                sh "cd /home/centos/payment/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
@@ -97,7 +97,7 @@ pipeline {
         }
         stage('Deploying Frontend') {
             steps {
-                sh "/home/centos/frontend/"
+                sh "cd /home/centos/frontend/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"

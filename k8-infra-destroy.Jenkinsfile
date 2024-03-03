@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Deploying Catalogue') {
             steps {
-                sh "/home/centos/catalogue/"
+                sh "cd /home/centos/catalogue/"
                 sh "echo Authentication To EKS"
                 sh "aws eks update-kubeconfig  --name dev-eks-cluster"
                 sh "kubectl get nodes"
