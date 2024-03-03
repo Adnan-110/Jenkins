@@ -16,7 +16,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
@@ -29,7 +29,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
@@ -55,7 +55,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
@@ -68,7 +68,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
@@ -81,7 +81,7 @@ pipeline {
                     echo Authentication To EKS
                     aws eks update-kubeconfig  --name dev-eks-cluster
                     kubectl get nodes
-                    kubectl delete -f k8-deploy.yaml
+                    kubectl delete -f k8-deploy.yml
                 '''
                 }
             }
