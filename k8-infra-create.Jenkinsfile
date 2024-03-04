@@ -9,15 +9,12 @@ pipeline {
     stages {
         stage('Terraform Create Network') {
             steps {
-                dir('VPC') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/Terraform-vpc.git'
-                        sh '''
-                            terrafile -f env-dev/Terrafile
-                            terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
-                            terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var ENV=${ENV}
-                            terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars -var ENV=${ENV}
-                        '''
-                }
+                dir('VPC') { git branch: 'main', url: 'https://github.com/Adnan-110/Terraform-vpc.git'
+                        sh "terrafile -f env-${ENV}/Terrafile"
+                        sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars  -reconfigure"
+                        sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
+                    }
                 }
             }
 
@@ -38,8 +35,8 @@ pipeline {
 
         stage('Creating-EKS') {
             steps {
-                dir('EKS') {  
-                git branch: 'main', url: 'https://github.com/Adnan-110/Kubernetes.git'
+                dir('EKS') {  git branch: 'main', url: 'https://github.com/Adnan-110/Kubernetes.git'
+
                         sh ''' 
                             cd eks 
                             make create
@@ -48,6 +45,6 @@ pipeline {
                         ''' 
                     }
                 }
-            }
-        }  
-}          
+            }         
+        }    
+    }                        
