@@ -8,84 +8,84 @@ pipeline {
         ansiColor('xterm')    // Add's color to the output : Ensure you install AnsiColor Plugin.
     }
     stages {
-        stage('Deleting Catalogue') {
-            steps {
-                dir('catalogue') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
-        stage('Deleting User') {
-            steps {
-                dir('user') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
-        stage('Deleting Cart') {
-            steps {
-                dir('cart') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
-        stage('Deploying Shipping') {
-            steps {
-                dir('shipping') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
-        stage('Deleting Payment') {
-            steps {
-                dir('payment') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
-        stage('Deleting Frontend') {
-            steps {
-                dir('frontend') {
-                git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
-                sh '''
-                    echo Authentication To EKS
-                    aws eks update-kubeconfig  --name dev-eks-cluster
-                    kubectl get nodes
-                    kubectl delete -f k8-deploy.yml
-                '''
-                }
-            }
-        }
+        // stage('Deleting Catalogue') {
+        //     steps {
+        //         dir('catalogue') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/catalogue.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
+        // stage('Deleting User') {
+        //     steps {
+        //         dir('user') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/user.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
+        // stage('Deleting Cart') {
+        //     steps {
+        //         dir('cart') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/cart.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
+        // stage('Deploying Shipping') {
+        //     steps {
+        //         dir('shipping') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/shipping.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
+        // stage('Deleting Payment') {
+        //     steps {
+        //         dir('payment') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/payment.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
+        // stage('Deleting Frontend') {
+        //     steps {
+        //         dir('frontend') {
+        //         git branch: 'main', url: 'https://github.com/Adnan-110/frontend.git'
+        //         sh '''
+        //             echo Authentication To EKS
+        //             aws eks update-kubeconfig  --name dev-eks-cluster
+        //             kubectl get nodes
+        //             kubectl delete -f k8-deploy.yml
+        //         '''
+        //         }
+        //     }
+        // }
         stage('Destroying-EKS') {
             steps {
                 dir('EKS') {  
